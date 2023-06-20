@@ -1,0 +1,37 @@
+{
+    "account": "your_dmm_acccount",
+    "password": "your_dmm_passowrd",
+    "headless": false,
+    "proxy": {
+        "WARNING": "if you wanna use an unique proxy for iris_mysteria automatic helper as they blocked every ip addresses oversea Japan, just set abide system = false then set yor proxy ip",
+        "abide_system": true,
+        "ip_address": "http://127.0.0.1:7890"
+    },
+    "maximum_retry": 5,
+    "event": {
+        "enable": true
+    },
+    "weekly": {
+        "enable": true,
+        "WARNING": "do NOT modify any of those following lines after this warm, just enable auto weekly gather those content will generate automatically",
+        "last_date": "2023-06-20 08:46:59",
+        "material": {
+            "easy": 1,
+            "moderate": 1,
+            "hard": 1,
+            "hell": 0
+        },
+        "gem": {
+            "easy": 0,
+            "moderate": 0,
+            "hard": 0,
+            "hell": 0
+        },
+        "present": {
+            "easy": 0,
+            "moderate": 0,
+            "hard": 0,
+            "hell": 0
+        }
+    }
+}
