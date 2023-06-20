@@ -29,8 +29,8 @@
 ### 必要的配置
   #### 在爱丽丝秘跡
    1. 在设置(設定)的game(ゲーム)里面 关闭event(イベント)开始时的(開催時の)opening(オープニング)播放 选择从不播放(常に再生しない)
-   2. 用来执行活动关卡的队伍 从默认名"パーティーxx"改名为"event_clear" 或者在助手关闭event
-  #### 在助手config.json
+   2. 用来执行活动关卡的队伍 从默认名"パーティーxx"改名为"event_clear" 或者在config关闭event
+  #### 在助手和config.json
    1. 解压路径必须是纯英文的
    2. 在"account"和"password"填入DMM账号和密码
    3. 设置"event"的"enable"为false关闭event功能 或者在在爱丽丝秘跡里配置活动队伍名称
