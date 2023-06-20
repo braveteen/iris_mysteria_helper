@@ -31,8 +31,9 @@ Free your hands by automatically logging in to Iris Mysteria and performing acti
    1. In the "game(ゲーム)" menu of settings(設定), disable the opening animation(オープニング) when events(イベント) start(開催). Select "Never Play"(常に再生しない)
    2. Rename the team used for event stages from the default name "パーティーxx" to "event_clear", or disable event-related functions in the helper config
   #### In config.json of Helper
-   1. Fill in the "account" and "password" with your DMM account and password
-   2. Set "enable" to false in "event" to disable the event feature, or configure the event team name in Iris Mysteria
+   1. The path of fold must be English
+   2. Fill in the "account" and "password" with your DMM account and password
+   3. Set "enable" to false in "event" to disable the event feature, or configure the event team name in Iris Mysteria
 ## WARN
   ### Avoid improper operations
    - Scroll operations use absolute coordinates. If you want to change the browser window size or zoom level, please disable the weekly feature first
