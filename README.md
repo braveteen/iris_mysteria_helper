@@ -1,12 +1,12 @@
-## [中文](./README_SC.md)
+## [English](./README_EN.md)
 
-# Iris Mysteria Helper
+# 爱丽丝秘跡助手
 
-built on [Selenium WebDriver](https://github.com/SeleniumHQ/) for browser conrol and [OpenCV](https://github.com/opencv) for image recognition.
+基于 [Selenium WebDriver](https://github.com/SeleniumHQ/) 用于浏览器操控 和 [OpenCV](https://github.com/opencv) 用于图像识别.
 
 ## 用途
 
-解放双手 自动登录爱丽丝秘迹并自动执行操作
+解放双手 自动登录爱丽丝秘跡并自动执行操作
 
 #### 功能包括但不限于
    - 学园训练
@@ -27,12 +27,12 @@ built on [Selenium WebDriver](https://github.com/SeleniumHQ/) for browser conrol
    
    
 ### 必要的配置
-  #### 在爱丽丝秘迹
-   1. 关闭event(イベント)开始的opening(オープニング)播放 在设置的game(ゲーム)里面 选择从不播放
+  #### 在爱丽丝秘跡
+   1. 在设置(設定)的game(ゲーム)里面 关闭event(イベント)开始时的(開催時の)opening(オープニング)播放 选择从不播放(常に再生しない)
    2. 用来执行活动关卡的队伍 从默认名"パーティーxx"改名为"event_clear" 或者在助手关闭event
   #### 在助手config.json
    1. 在"account"和"password"填入DMM账号和密码
-   2. 设置"event"的"enable"为false关闭event功能 或者在在爱丽丝秘迹里配置活动队伍名称
+   2. 设置"event"的"enable"为false关闭event功能 或者在在爱丽丝秘跡里配置活动队伍名称
 
 ## 注意事项
   ### 避免不当操作
@@ -45,4 +45,4 @@ built on [Selenium WebDriver](https://github.com/SeleniumHQ/) for browser conrol
   ## License
   ### MIT
   
-欢迎自由修改和编辑
+欢迎自由编辑和修改
