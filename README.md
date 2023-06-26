@@ -56,5 +56,5 @@
 
 #### 队伍名称配置如图
 ![tutorial](https://github.com/munezawa/iris_mysteria_helper/assets/34181587/36ea56c0-68f9-471b-9026-4760f6d9e9b5)
-#### 部分flow_chart
+#### 部分flow chart
 ![flow_chart](https://github.com/munezawa/iris_mysteria_helper/assets/34181587/bb25e048-0a76-48cb-81b3-64213274270b)
