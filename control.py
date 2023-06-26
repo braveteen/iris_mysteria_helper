@@ -22,6 +22,7 @@ import iris_mysteria_weekly
 import iris_mysteria_general
 import iris_mysteria_event
 import iris_mysteria_reward
+import iris_mysteria_ordeal
 import asyncio
 import traceback
 import sys
@@ -36,12 +37,21 @@ async def initialize():
                 if(i == "material" or i == "gem" or i == "present"):
                     for j in user_config["weekly"][i]:
                         user_config["weekly"][i][j] = 0
-            f.seek(0)
-            json.dump(user_config, f, indent=4)
-            f.truncate()
             print("iris mysteria reset weekly quest status for new week", iris_mysteria_general.current_week())
         else:
             print("iris mysteria today is in the same week of last time")
+        if(iris_mysteria_general.current_month()
+           !=datetime.datetime.strptime(user_config["ordeal"]["last_date"], '%Y-%m-%d %H:%M:%S').month):
+            user_config["ordeal"]["palvin"] = 0
+            user_config["ordeal"]["amniacorum"] = 0
+            user_config["ordeal"]["bilvgarden"] = 0
+            print("iris mysteria reset monthly ordeal for new month", iris_mysteria_general.current_month())
+        else:
+            print("iris mysteria today is in the same month of last time")
+        f.seek(0)
+        json.dump(user_config, f, indent=4)
+        f.truncate()
+            
         
     if(user_config["proxy"]["abide_system"]==True):
         print("iris mysteria abide system proxy config")
@@ -147,20 +157,40 @@ async def main():
                 stamina = await loop_wrapper(iris_mysteria_weekly.weekly_material,3600)(game_driver)
             if(stamina != -1):
                 stamina = await loop_wrapper(iris_mysteria_weekly.weekly_gem,2400)(game_driver)
-            if(stamina != -1):
-                stamina = await loop_wrapper(iris_mysteria_weekly.weekly_material,3600)(game_driver)
+            if(stamina != -1):  
+                stamina = await loop_wrapper(iris_mysteria_weekly.weekly_present,3600)(game_driver)
         else:
             print("iris mysteria weekly gather quest is disabled")
         if(user_config["event"]["enable"]==True and stamina != -1):
             await loop_wrapper(iris_mysteria_event.event,7200)(game_driver)
+        if(user_config["ordeal"]["enable"]==True):
+            with open(os.path.abspath(os.path.dirname(__file__))+'\config.json','r+', encoding='UTF-8') as f:
+                user_config=json.loads(f.read())
+                user_config["ordeal"]["last_date"] = iris_mysteria_general.standard_time().strftime('%Y-%m-%d %H:%M:%S')
+                f.seek(0)
+                json.dump(user_config, f, indent=4)
+                f.truncate()
+            await loop_wrapper(iris_mysteria_ordeal.ordeal,1200)(game_driver)
         await loop_wrapper(iris_mysteria_reward.reward)(game_driver)
     except Exception as e:
         print(e)
         logging.error(time.strftime('%y-%m-%d %H:%M:%S')+traceback.format_exc() + '-------------- \n')
     print("iris mysteria all thread finished")
-    await asyncio.sleep(60)
+    await asyncio.sleep(10)
     game_driver.quit()
-    sys.exit()
 
 if(__name__ == "__main__"):
-    asyncio.run(main())
+    with open(os.path.abspath(os.path.dirname(__file__))+'\config.json','r+', encoding='UTF-8') as f:
+        user_config=json.loads(f.read())
+    if(user_config["loop"]["enable"]==False):
+        print("execute iris mysteria thread without loop")
+        asyncio.run(main())
+        sys.exit()
+    else:
+        print(f"execute iris mysteria using loop in {user_config['loop']['trigger_hour']} hours unitll user voluntary cancel")
+        while(1):
+            print(datetime.datetime.now().hour,"is current hour")
+            if(int(datetime.datetime.now().hour) in user_config['loop']['trigger_hour']):
+                print("appropriate time for execute iris mysteria")
+                asyncio.run(main())
+            time.sleep(1800)

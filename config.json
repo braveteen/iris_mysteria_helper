@@ -1,7 +1,15 @@
 {
-    "account": "your_dmm_acccount",
-    "password": "your_dmm_passowrd",
+    "account": "your_dmm_account",
+    "password": "your_password",
     "headless": false,
+    "loop": {
+        "enable": false,
+        "trigger_hour": [
+            7,
+            15,
+            23
+        ]
+    },
     "proxy": {
         "WARNING": "if you wanna use an unique proxy for iris_mysteria automatic helper as they blocked every ip addresses oversea Japan, just set abide system = false then set yor proxy ip",
         "abide_system": true,
@@ -13,12 +21,12 @@
     },
     "weekly": {
         "enable": true,
-        "WARNING": "do NOT modify any of those following lines after this warm, just enable auto weekly gather those content will generate automatically",
-        "last_date": "2023-06-20 08:46:59",
+        "WARNING": "do NOT modify any of those following lines after this warm, just enable auto weekly gather those content will generate automatically, any so do in monthly ordeal",
+        "last_date": "2023-06-26 09:04:16",
         "material": {
-            "easy": 1,
-            "moderate": 1,
-            "hard": 1,
+            "easy": 0,
+            "moderate": 0,
+            "hard": 0,
             "hell": 0
         },
         "gem": {
@@ -33,5 +41,13 @@
             "hard": 0,
             "hell": 0
         }
+    },
+    "ordeal": {
+        "enable": true,
+        "last_date": "2023-06-26 09:07:54",
+        "premium_room": null,
+        "palvin": 0,
+        "amniacorum": 0,
+        "bilvgarden": 0
     }
 }

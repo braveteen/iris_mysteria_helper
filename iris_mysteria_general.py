@@ -19,8 +19,12 @@ def current_week():
     now = standard_time()
     return now.isocalendar().week
 
+def current_month():
+    now = standard_time()
+    return now.month
+
 if(__name__ == "__main__"):
-    print(current_week())
+    print(current_month())
     # result = standard_time()
     # with open(os.path.abspath(os.path.dirname(__file__))+'\config.json','r+', encoding='UTF-8') as f:
     #     data=json.loads(f.read())
